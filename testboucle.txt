@@ -1,0 +1,162 @@
+function validate(event){
+  // Je créer toutes mes variables pour la function
+
+  let first = document.getElementById("first");
+  let firstMessage = document.getElementById("firstMessage");
+
+  let last = document.getElementById("last");
+  let lastMessage = document.getElementById("lastMessage");
+
+  let email = document.getElementById("email");
+  let emailMessage = document.getElementById("emailMessage");
+  const regexEmail = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]+");
+
+  let birth = document.getElementById("birthdate");
+  let birthMessage = document.getElementById("birthMessage");
+
+  let quantity = document.getElementById("quantity");
+  let quantityMessage = document.getElementById("quantityMessage");
+
+  if (first.value == "") {
+    firstMessage.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ prénom.";
+    return false;
+  }
+  if (last.value == "") {
+    lastMessage.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ nom.";
+    return false;
+  }
+  if (email.value == "" || regexEmail.test(email)) {
+    emailMessage.innerHTML = "Veuillez entrer un email valide.";
+    return false;
+  }
+  if (birth.value == "") {
+    birthMessage.innerHTML = "Vous devez entrer votre date de naissance.";
+    return false;
+  }
+  if (quantity.value == "") {
+    quantityMessage.innerHTML = "Veuillez entrer 1 chiffre ou plus pour ce champ.";
+    return false;
+  }
+
+  let inputlocation = document.getElementsByName("location");
+  let ischecked = false;
+  let optionMessage = document.getElementById("optionMessage");
+
+  for( var i=0; i<inputlocation.length; i++ ){
+    if (inputlocation[i].checked) {
+      ischecked = true;
+    }
+  }
+  if (ischecked == false) {
+    optionMessage.innerHTML = "Vous devez choisir une option.";
+    return false;
+  }
+
+  let inputcheckbox = document.getElementById("checkbox1");
+  let conditionMessage = document.getElementById("conditionMessage");
+  if(inputcheckbox.checked != true){
+    conditionMessage.innerHTML = "Vous devez accepter les conditions d'utilisation.";
+    return false;
+  }
+  return true;
+}
+
+
+
+
+
+
+// function testvalidate(event){
+   // Je créer une variable pour pointer sur tous mes champs text
+//   let inputtext = document.getElementsByClassName("text-control");
+//   var availabilityMessage = document.getElementById("availabilityMessage");
+
+   // Je boucle sur toutes les valeurs de mon tableaux
+//   for( var i=0; i<inputtext.length; i++ ){
+     // Je test si le champs est vide ou non
+     // console.log(inputtext[i]);
+//     if (inputtext[i].value == "") {
+       // J'affiche une alerte qui dit quel est le champs est vide
+//       alert(inputtext[i].name + ' cannot be empty');
+//       return false;
+//     }
+//   }
+
+   // Je créer une variable pour pointer sur tous mes champs checkbox radio
+//   let inputlocation = document.getElementsByName("location");
+   // Je créer un boolean pour checker si un bouton radio est coché
+//   let ischecked = false;
+
+   // console.log("before-test " + ischecked);
+   // Je boucle sur toutes les valeurs de mon tableaux
+//   for( var i=0; i<inputlocation.length; i++ ){
+     // console.log("boucletest " + i + " " + inputlocation[i].checked);
+     // Je check si un bouton radio est coché
+//     if (inputlocation[i].checked) {
+       // Si oui je passe le boolean a true
+//       ischecked = true;
+//     }
+//   }
+
+   // console.log("middle-test " + ischecked);
+   // Si le boolean est a false je met une alert
+//   if (ischecked == false) {
+//     alert("Vous devez cocher une case");
+//     return false;
+//   }
+   // console.log("post-test " + ischecked);
+
+   //Je créer une variable pour pointer sur le champs des conditions
+//   let inputcheckbox = document.getElementById("checkbox1");
+   // Je test si le champs conditions est coché
+//   if(inputcheckbox.checked != true){
+//     alert("Vous devez accepter les conditions d'utilisation");
+//     return false;
+//   }
+//   return true;
+// }
+
+
+
+document.getElementById('first').addEventListener('input', function () {
+  document.getElementById('firstMessage').textContent = '';
+});
+
+document.getElementById('last').addEventListener('input', function () {
+  document.getElementById('lastMessage').textContent = '';
+});
+
+document.getElementById('email').addEventListener('input', function () {
+  document.getElementById('emailMessage').textContent = '';
+});
+
+document.getElementById('birthdate').addEventListener('input', function () {
+  document.getElementById('birthMessage').textContent = '';
+});
+
+document.getElementById('quantity').addEventListener('input', function () {
+  document.getElementById('quantityMessage').textContent = '';
+});
+
+document.getElementById('location1').addEventListener('input', function () {
+  document.getElementById('optionMessage').textContent = '';
+});
+document.getElementById('location2').addEventListener('input', function () {
+  document.getElementById('optionMessage').textContent = '';
+});
+document.getElementById('location3').addEventListener('input', function () {
+  document.getElementById('optionMessage').textContent = '';
+});
+document.getElementById('location4').addEventListener('input', function () {
+  document.getElementById('optionMessage').textContent = '';
+});
+document.getElementById('location5').addEventListener('input', function () {
+  document.getElementById('optionMessage').textContent = '';
+});
+document.getElementById('location6').addEventListener('input', function () {
+  document.getElementById('optionMessage').textContent = '';
+});
+document.getElementById('checkbox1').addEventListener('input', function () {
+  document.getElementById('optionMessage').textContent = '';
+});
+
