@@ -31,6 +31,7 @@ function launchModal() {
 // Close modal form
 function closeModal() {
   modalbg.style.display = "none";
+  form.reset();
 }
 // Clean modal form
 function cleanModal() {
@@ -123,10 +124,11 @@ function afficherErreur(message, element) {
     error.classList.add("errorMessage");
   }
   error.innerHTML = message;
-  element.style.border = "2px solid #FF4E60";
+  element.classList.add("errorBorder");
   element.addEventListener('input', () => {
     if (error) {
       error.remove();
+      element.classList.remove("errorBorder");
     }
   });
 }
@@ -233,20 +235,34 @@ function validate() {
   if(bool){
     form.reset();
     cleanModal();
-    let messageSuccess = document.createElement("p");
-    messageSuccess.style.fontSize = "36px";
-    messageSuccess.style.textAlign = "center";
-    messageSuccess.style.paddingTop = "200px";
-    messageSuccess.style.paddingBottom = "200px";
-    messageSuccess.innerHTML = "Merci pour votre inscription";
 
+    let messageSuccess = document.createElement("p");
     let btnClose = document.createElement("button");
+
+    messageSuccess.innerHTML = "Merci pour votre inscription";
     btnClose.innerHTML = "Fermer";
+
     btnClose.classList.add("btn-submit");
-    formulaire.insertAdjacentElement("afterend", messageSuccess);
+    messageSuccess.classList.add("msg-success");
+
     formulaire.append(br);
+    formulaire.insertAdjacentElement("afterend", messageSuccess);
     messageSuccess.insertAdjacentElement("afterend", btnClose);
-    btnClose.addEventListener("click", closeModal);
+
+    btnClose.addEventListener("click", function() {
+      messageSuccess.style.display = "none";
+      btnClose.style.display = "none";
+      formulaire.style.display = "block";
+      modalbg.style.display = "none";
+    });
+    
+    let closemodal = document.querySelector(".close");
+    closemodal.addEventListener("click", function() {
+      messageSuccess.style.display = "none";
+      btnClose.style.display = "none";
+      formulaire.style.display = "block";
+      modalbg.style.display = "none";
+    });
   } 
   
   return true;

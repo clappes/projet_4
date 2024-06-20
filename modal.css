@@ -663,3 +663,13 @@ footer {
   font-size: 13px;
   font-weight: 400;
 }
+.errorBorder {
+  border: 2px solid #FF4E60;
+}
+
+.msg-success {
+  font-size: 36px;
+  text-align: center;
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
