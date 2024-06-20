@@ -85,7 +85,7 @@ function validerEmail(email) {
 function validerBirthdate(birth) {
   console.log(document.getElementById('birthdate'));
   let date = new Date();
-  if (birth.value === "" || new Date(birth) > date) {
+  if (document.getElementById('birthdate').value === "" || new Date(birth) > date) {
     throw new Error("**Vous devez entrer votre date de naissance.");
   }
 }
